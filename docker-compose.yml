@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  sonarqube:
+    image: sonarqube:9.9.8-community
+    container_name: sonarqube
+    ports:
+      - "9090:9000"
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:h2:tcp://sonarqube:9092/sonar;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      - SONAR_LOGIN=admin
+      - SONAR_PASSWORD=admin
+    networks:
+      - sonarnet
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_extensions:/opt/sonarqube/extensions
+      - sonar_logs:/opt/sonarqube/logs
+      - ./target/jacoco-report:/opt/sonarqube/jacoco-report
+networks:
+  sonarnet:
+    driver: bridge
+
+volumes:
+  sonar_data:
+  sonar_extensions:
+  sonar_logs:

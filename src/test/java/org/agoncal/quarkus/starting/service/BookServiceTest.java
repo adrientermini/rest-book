@@ -63,7 +63,7 @@ class BookServiceTest {
     @Test
     void getBook_NotFound() {
         // Given
-        when(bookRepository.getBook(anyLong())).thenReturn(Optional.ofNullable(null));
+        when(bookRepository.getBook(anyLong())).thenReturn(Optional.empty());
 
         // When
         NotFoundException exception = assertThrows(NotFoundException.class, () -> bookService.getBook(anyLong()));

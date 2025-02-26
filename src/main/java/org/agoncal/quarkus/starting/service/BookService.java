@@ -9,7 +9,6 @@ import org.agoncal.quarkus.starting.repository.BookRepository;
 import org.jboss.logging.Logger;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class BookService {
@@ -28,7 +27,7 @@ public class BookService {
         return bookRepository.getAllBooks()
                 .stream()
                 .map(bookMapper::mapToBookDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public BookDTO getBook(Long id) {
