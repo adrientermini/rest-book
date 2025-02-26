@@ -28,7 +28,7 @@ class BookControllerTest {
 
     @DisplayName(value = "Get book by id")
     @Test
-    public void getBook() {
+    void getBook() {
         given()
                 .header(ACCEPT, APPLICATION_JSON)
                 .pathParam("id", 1)
@@ -42,7 +42,7 @@ class BookControllerTest {
 
     @DisplayName(value = "Count all books")
     @Test
-    public void countAllBooks() {
+    void countAllBooks() {
         given()
                 .header(ACCEPT, TEXT_PLAIN)
         .when()

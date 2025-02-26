@@ -12,6 +12,9 @@ release.properties
 .settings/
 bin/
 
+# SonarQube Token
+.sonar_token
+
 # IntelliJ
 .idea
 *.ipr
