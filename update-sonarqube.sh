@@ -9,6 +9,7 @@ SONAR_USER="admin"
 SONAR_PASSWORD="admin"
 TOKEN_NAME="auto-generated-token"
 TOKEN_FILE=".sonar_token"  # File to store the token
+COVERAGE_JACOCO_XML_REPORT_PATHS="target/jacoco-report/jacoco.xml"
 
 # Run SonarQube analysis with Maven
 echo "🧪 Running Tests with Maven..."
@@ -73,7 +74,7 @@ fi
 
 # Run SonarQube analysis with Maven
 echo "🚀 Running SonarQube analysis with Maven..."
-./mvnw sonar:sonar -Dsonar.host.url=$SONAR_HOST -Dsonar.login=$SONAR_TOKEN
+./mvnw sonar:sonar -Dsonar.host.url=$SONAR_HOST -Dsonar.login=$SONAR_TOKEN -Dsonar.coverage.jacoco.xmlReportPaths=$COVERAGE_JACOCO_XML_REPORT_PATHS
 
 echo "🎯 SonarQube analysis completed successfully!"
 
